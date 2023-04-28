@@ -14,7 +14,12 @@
         android:theme="@style/Theme.StreamChatApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ChannelActivity"
+            android:exported="false"
+            android:label="@string/title_activity_channel"
+            android:theme="@style/Theme.StreamChatApp" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.StreamChatApp">
