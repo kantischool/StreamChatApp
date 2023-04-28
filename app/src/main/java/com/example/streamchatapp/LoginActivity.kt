@@ -73,6 +73,7 @@ class LoginActivity : ComponentActivity() {
                     is LoginViewModel.LogInEvent.Success -> {
                         Toast.makeText(this@LoginActivity, "Successful", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@LoginActivity, ChannelActivity::class.java))
+                        finish()
                     }
                 }
             }
