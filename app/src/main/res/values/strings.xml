@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">StreamChatApp</string>
+    <string name="api_key">eyytm7w57vss</string>
+    <string name="jwt_token">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoia2FudGlpZCJ9.HtvtU1CqyBDhC0e9o8bC5QfSsOasU2w-34xEH2rfFKg</string>
 </resources>
