@@ -11,18 +11,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.streamchatapp.ui.theme.StreamChatAppTheme
+import io.getstream.chat.android.client.models.Filters
+import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
+import io.getstream.chat.android.compose.ui.theme.ChatTheme
 
 class ChannelActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            StreamChatAppTheme {
+            ChatTheme() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                   ChannelsScreen(
+                       filters = Filters.`in`("type", values = listOf("team", "messaging")),
+                       title = "Channels",
+                       isShowingSearch = true,
+                       onBackPressed = {finish()},
+                       onItemClick = {
+
+                       }
+                   )
                 }
             }
         }

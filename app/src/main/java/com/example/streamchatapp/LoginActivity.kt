@@ -1,5 +1,6 @@
 package com.example.streamchatapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -71,6 +72,7 @@ class LoginActivity : ComponentActivity() {
 
                     is LoginViewModel.LogInEvent.Success -> {
                         Toast.makeText(this@LoginActivity, "Successful", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, ChannelActivity::class.java))
                     }
                 }
             }
