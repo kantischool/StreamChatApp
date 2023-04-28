@@ -62,7 +62,7 @@ class ChannelActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                    ChannelsScreen(
-                       filters = Filters.`in`("type", values = listOf("team", "messaging")),
+                       filters = Filters.`in`("type", values = listOf("team", "messaging", "livestream", "gaming", "commerce")),
                        title = "Channels",
                        isShowingSearch = true,
                        onBackPressed = {finish()},
