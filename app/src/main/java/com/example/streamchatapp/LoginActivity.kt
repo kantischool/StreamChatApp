@@ -156,6 +156,8 @@ class LoginActivity : ComponentActivity() {
                         .padding(8.dp),
                     strokeWidth = 3.dp
                 )
+            
+            Text(text = "USE kantiid AS USER NAME TO login as user")
 
 
         }
