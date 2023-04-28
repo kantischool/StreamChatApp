@@ -1,5 +1,7 @@
 package com.example.streamchatapp
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,19 +13,41 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.streamchatapp.ui.theme.StreamChatAppTheme
+import io.getstream.chat.android.compose.ui.messages.MessagesScreen
+import io.getstream.chat.android.compose.ui.theme.ChatTheme
 
 class MessageActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val channelId = intent.getStringExtra(CHANNEL_KEY)
+        if (channelId == null) {
+            finish()
+            return
+        }
         setContent {
-            StreamChatAppTheme {
+            ChatTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting2("Android")
+                    MessagesScreen(
+                        channelId = channelId,
+                        messageLimit = 30,
+                        onBackPressed = { finish() }
+                    )
                 }
+            }
+        }
+    }
+
+    companion object {
+        const val CHANNEL_KEY = "channel"
+
+        fun getIntent(ctx: Context, channelId: String): Intent {
+            return Intent(ctx, MessageActivity::class.java).apply {
+                putExtra(CHANNEL_KEY, channelId)
             }
         }
     }

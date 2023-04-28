@@ -31,7 +31,7 @@ class ChannelActivity : ComponentActivity() {
                        isShowingSearch = true,
                        onBackPressed = {finish()},
                        onItemClick = {
-
+                           startActivity(MessageActivity.getIntent(this, it.cid))
                        }
                    )
                 }
